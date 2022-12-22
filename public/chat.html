@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Chat App</title>
+    <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+    <div class="chat">
+        <div class="chat__sidebar">
+           
+            
+        </div>
+        <div class="chat__main">
+            <div id="messages" class="chat__messages"></div>
+            <div class="compose">
+                <form id="message-form">
+                    <input placeholder="Message" required autocomplete="off">
+                    <button>Send</button>
+                </form>
+                <div id="message-container"></div>
+                <button id="send-location">Send location</button>
+            </div>
+        </div>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/chat.js"></script>
+</body>
+
+</html>
