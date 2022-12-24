@@ -6,7 +6,6 @@
 ---
 #### Future features
 - [ ] Share media
-- [ ] Show available rooms and let the user choose a room
 ---
 #### Plugins used:
 - express
