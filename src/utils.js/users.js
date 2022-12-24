@@ -1,5 +1,4 @@
 const users = []
-
 const addUser = ({ id, username, room }) => {
 
     // Clean the data
@@ -26,11 +25,11 @@ const addUser = ({ id, username, room }) => {
         }
     }
 
-
     // Store user
     const user = { id, username, room }
     users.push(user)
 
+    console.log(getRooms())
     return { user }
 
 }
@@ -54,10 +53,14 @@ const getUsersInRoom = (room) => {
     return users.filter((user) => user.room === room)
 }
 
+const getRooms = () => {
+    return [...new Set(users.map((user) => user.room))].sort()
+}
 
 module.exports = {
     addUser,
     getUser,
     removeUser,
-    getUsersInRoom
+    getUsersInRoom,
+    getRooms
 }

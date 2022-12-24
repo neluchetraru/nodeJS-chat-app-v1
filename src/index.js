@@ -3,7 +3,7 @@ const http = require('http')
 const express = require('express')
 const socketio = require('socket.io')
 const Filter = require('bad-words')
-const { getUser, addUser, removeUser, getUsersInRoom } = require('./utils.js/users')
+const { getUser, addUser, removeUser, getUsersInRoom, getRooms } = require('./utils.js/users')
 
 const app = express()
 const server = http.createServer(app)
@@ -15,10 +15,9 @@ const port = process.env.PORT || 3000
 app.use(express.static(publicDirectoryPath))
 
 io.on('connection', (socket) => {
-
     socket.on('join', ({ username, room }, callback) => {
         const { error, user} = addUser({ id:socket.id, username, room})
-
+        console.log(room)
         if (error){
             return callback(error)
         }
@@ -66,6 +65,8 @@ io.on('connection', (socket) => {
         io.to(user.room).emit('locationMessage',{username: user.username, url:`https://google.com/maps?q=${coords.latitude},${coords.longitude}`})
         callback('Location shared')
     })
+    
+    socket.emit('lobbyConnect', getRooms())
 })
 
 
