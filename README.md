@@ -1,5 +1,6 @@
 # NodeJS Chat App
 A simple chat web application in which a user can create a room or choose an existing room to communicate with people.
+![Preview image](./public/img/preview.jpg)
 ---
 
 ## Tools used
